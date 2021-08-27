@@ -4,7 +4,7 @@ import React from "react";
 
 class Gallerie extends React.Component {
   state = {
-    search: this.props.sendSearch? this.props.sendSearch : '',
+    search: this.props.sendSearch,
   };
 
   render() {

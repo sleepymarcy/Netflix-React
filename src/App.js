@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="body">
       <MyNavbar />
-      <Gallerie />
       <div className="break"></div>
       <MyFooter />
     </div>

@@ -34,8 +34,10 @@ class GallerieRow extends React.Component {
             <h2 className="text-white">{this.state.search}</h2>
         </div>
         {
-        this.state.loading ?   <Spinner animation="grow" variant="warning" className="mx-auto my-5"/> : 
-        this.state.library.slice(0,6).map(mov => <MovieCard movieId = {mov.imdbID} img={mov.Poster}/>)
+          this.state.loading ?   
+          <Spinner animation="grow" variant="warning" className="mx-auto my-5"/> 
+          : 
+          this.state.library.slice(0,6).map(mov => <MovieCard movieId = {mov.imdbID} img={mov.Poster}/>)
         }
         </div>
     );

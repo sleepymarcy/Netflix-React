@@ -52,17 +52,13 @@ class Gallerie extends React.Component {
         </div>
 
         {/* GALLERIE ROWS */}
-        {this.state.search.length > 1 ? (
-          <>
-            <GallerieRow search={this.state.search} />
-          </>
-        ) : (
+        
           <>
             <GallerieRow search="Harry Potter" />
             <GallerieRow search="Lord of the Rings" />
             <GallerieRow search="Hobbit" />
           </>
-        )}
+        
       </>
     );
   }

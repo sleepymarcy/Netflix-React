@@ -1,15 +1,27 @@
-import { Navbar, Nav, Form, Button, FormControl, NavDropdown, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap'
+import { Navbar, Nav, Form, Button, FormControl, DropdownButton, Dropdown } from 'react-bootstrap'
 import Netflix from '../assets/Netflix.svg'
 import { BsSearch } from 'react-icons/bs'
 import { BsBellFill } from 'react-icons/bs'
 import React from 'react'
-import Gallerie from "./GallerieRow";
+import Gallerie from "./Gallerie"
+import GallerieRow from './GallerieRow'
 
 class MyNavbar extends React.Component {
 
     state = {
-        search: ''
-    };
+        search: '',
+        loading: false
+    }
+
+    setSearch(e){
+        if(e.key ==="Enter"){
+            this.setState({search: e.target.value, loading: true})
+        } else {
+            this.setState({search: e.target.value, loading:false})
+        }
+    }
+
+
 
     render() {
 
@@ -28,36 +40,40 @@ class MyNavbar extends React.Component {
                             <Nav.Link href="#">Recently Added</Nav.Link>
                             <Nav.Link href="#">My List</Nav.Link>
                         </Nav>
-                        <Nav className="ml-auto">
-                            <Form className="d-flex">
+                        <Nav className="ml-auto pr-3">
+                            
                                 <FormControl
                                     type="search"
                                     placeholder="Search"
-                                    className="mr-2"
+                                    className="dropdownMenu"
                                     aria-label="Search"
-                                    value={this.state.search}
-                                    onChange={movie => this.setState({ search: movie.target.value })}
+                                    onKeyUp={e => this.setSearch(e)}
                                 />
-                                <Button variant="outline-dark"><BsSearch /></Button>
-                            </Form>
+                                <Button variant="bg-dark" style={{color: 'white'}}><BsSearch /></Button>
+                            
 
-                            <Nav.Link href="#"> KIDS </Nav.Link>
+                            <Nav.Link href="#" className="pl-3"> KIDS </Nav.Link>
 
                             <Nav.Link><BsBellFill /></Nav.Link>
 
-                            <NavDropdown title="User" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">User</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Manage Profile</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Help Center</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Signout Netlix</NavDropdown.Item>
-                            </NavDropdown>
+                            <DropdownButton title="User" menuAlign="right" id="dropdown-menu-align-right" variant="bg-dark" style={{color: 'white!important'}}>
+                                <Dropdown.Item href="#action/3.1">User</Dropdown.Item>
+                                <Dropdown.Item href="#action/3.2">Manage Profile</Dropdown.Item>
+                                <Dropdown.Item href="#action/3.3">Help Center</Dropdown.Item>
+                                <Dropdown.Divider />
+                                <Dropdown.Item href="#action/3.4">Signout Netlix</Dropdown.Item>
+                            </DropdownButton>
 
                         </Nav>
 
                     </Navbar.Collapse>
                 </Navbar>
-                <Gallerie sendSearch={this.state.search} />
+                { this.state.loading ?
+                    <GallerieRow search={this.state.search} />
+                    :
+                    <Gallerie />
+                }
+                
             </>
         )
     }

@@ -4,7 +4,7 @@ import GallerieRow from "./GallerieRow";
 const Gallerie = () => {
   return (
     <>
-      <div className="genre-details bg-dark mb-3">
+      <div className="genre-details bg-black py-3">
         <div className="d-flex justify-content-center">
           <h2 className="text-light m-0">TV Shows</h2>
           <DropdownButton
@@ -48,7 +48,9 @@ const Gallerie = () => {
       </div>
 
       {/* GALLERIE ROWS */}
-      <GallerieRow />
+      <GallerieRow search='Harry Potter'/>
+      <GallerieRow search='Lord of the Rings'/>
+      <GallerieRow search='Hobbit'/>
     </>
   );
 };

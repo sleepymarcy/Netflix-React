@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+:root {
+  --home-bg-color: #141414;
+  --account-bg-color: #f3f3f3;
+  --text-color: #fff;
+  --primary-color: #e40a13;
+  --secondary-color: #929292;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bg-black {
+  background-color:var(--home-bg-color) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.genre-details {
+  padding: 0.5em;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+}
+
+.iconSortBtn {
+  background-color: unset;
+  color: #b1b1b198;
+  border: 1px solid #b1b1b198;
+  display: flex;
+  vertical-align: middle;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0.4rem;
+  transition: 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.iconSortBtn:hover {
+  color: #fff;
+  border: 1px solid #fff;
+}
+/* DropDown Genres */
+.dropdownMenu > button {
+  background-color: var(--home-bg-color) !important;
+  border: 1px solid #b1b1b198;
+}
+.dropdownMenu > button:hover {
+  background-color: var(--home-bg-color) !important;
+  border: 1px solid #b1b1b198;
+}
+.dropdownMenu > button:active {
+  background-color: var(--home-bg-color) !important;
+  border: 1px solid #b1b1b198 !important;
+  box-shadow: unset !important;
+}
+.dropdownMenu > button:focus {
+  background-color: var(--home-bg-color) !important;
+  border: 1px solid #b1b1b198 !important;
+  box-shadow: unset !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Movie Cards */
+.movieCard {
+  text-decoration: unset;
+  color: #b1b1b198 !important;
+  transition: 0.3s;
+}
+.movieCard:hover {
+  position: relative;
+  transform: scale(1.1) !important;
+  z-index: 999;
 }

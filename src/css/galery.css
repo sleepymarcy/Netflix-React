@@ -1,3 +1,15 @@
+:root {
+  --home-bg-color: #141414;
+  --account-bg-color: #f3f3f3;
+  --text-color: #fff;
+  --primary-color: #e40a13;
+  --secondary-color: #929292;
+}
+
+.bg-black {
+  background-color:var(--home-bg-color) !important;
+}
+
 .genre-details {
   padding: 0.5em;
   display: flex;
@@ -22,20 +34,20 @@
 }
 /* DropDown Genres */
 .dropdownMenu > button {
-  background-color: #343a40;
+  background-color: var(--home-bg-color) !important;
   border: 1px solid #b1b1b198;
 }
 .dropdownMenu > button:hover {
-  background-color: #343a40;
+  background-color: var(--home-bg-color) !important;
   border: 1px solid #b1b1b198;
 }
 .dropdownMenu > button:active {
-  background-color: #343a40 !important;
+  background-color: var(--home-bg-color) !important;
   border: 1px solid #b1b1b198 !important;
   box-shadow: unset !important;
 }
 .dropdownMenu > button:focus {
-  background-color: #343a40 !important;
+  background-color: var(--home-bg-color) !important;
   border: 1px solid #b1b1b198 !important;
   box-shadow: unset !important;
 }

@@ -4,7 +4,7 @@ import React from "react";
 
 class Gallerie extends React.Component {
   state = {
-    search: "",
+    search: this.props.sendSearch? this.props.sendSearch : '',
   };
 
   render() {
@@ -18,9 +18,9 @@ class Gallerie extends React.Component {
               title="Genres"
               className="ml-3 dropdownMenu"
             >
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Drama</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Horror</Dropdown.Item>
+              <Dropdown.Item >Action</Dropdown.Item>
+              <Dropdown.Item >Drama</Dropdown.Item>
+              <Dropdown.Item >Horror</Dropdown.Item>
             </DropdownButton>
           </div>
           <div className="btn-group" role="group" aria-label="First group">

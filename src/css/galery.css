@@ -5,6 +5,9 @@
   --primary-color: #e40a13;
   --secondary-color: #929292;
 }
+a {
+  cursor: pointer;
+}
 
 .bg-black {
   background-color:var(--home-bg-color) !important;

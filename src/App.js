@@ -6,7 +6,7 @@ import Gallerie from './components/Gallerie'
 
 function App() {
   return (
-    <div className="bg-black w-100"> 
+    <div className="bg-black w-100 px-3"> 
       <Gallerie />
     </div>
   )

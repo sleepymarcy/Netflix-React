@@ -59,6 +59,9 @@ class Comments extends React.Component {
       console.log(e);
     }
   }
+  loadIt = async ()=> {
+      
+  }
   // setting up value
   setUp(e, name) {
     this.setState({
@@ -84,11 +87,39 @@ class Comments extends React.Component {
         },
       }
     );
+
     if (response.ok) {
-      this.setState({ success: true });
-      setInterval(this.setState({ success: false }), 2000);
+      this.setState({ success: true })
+      setTimeout(this.alert, 2000)
+      setTimeout(this.reload, 3000)
     }
   }
+//   alert
+  alert = ()=>{
+      this.setState({success: false})
+  }
+//   reload
+reload = async ()=> {
+    try {
+        const response = await fetch(
+          "https://striveschool-api.herokuapp.com/api/comments/" +
+            this.state.asin,
+          {
+            method: "GET",
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZjcwZDJkNTI2MjAwMTViNmRjOTkiLCJpYXQiOjE2Mjk5ODUyNzMsImV4cCI6MTYzMTE5NDg3M30.XnwP2w8HYgNw7WtHh0tP8haV9jofgQ_UQ9xJOsb01C4",
+            },
+          }
+        );
+        const data = await response.json();
+        this.setState({ comments: data, loading: false });
+        console.log(this.state.comments);
+      } catch (e) {
+        console.log(e);
+      }
+}
+
   render() {
     return (
       <Modal show={this.props.showit}>
@@ -131,7 +162,7 @@ class Comments extends React.Component {
                 <FormControl
                   type="text"
                   placeholder="author"
-                  className="dropdownMenu"
+                  className="dropdownMenu mb-1"
                   aria-label="Search"
                   onKeyUp={(e) => this.setUp(e, "author")}
                   required
@@ -139,7 +170,7 @@ class Comments extends React.Component {
                 <FormControl
                   type="text"
                   placeholder="comment"
-                  className="dropdownMenu"
+                  className="dropdownMenu mb-1"
                   aria-label="Search"
                   onKeyUp={(e) => this.setUp(e, "comment")}
                   required
@@ -147,7 +178,7 @@ class Comments extends React.Component {
                 <FormControl
                   type="number"
                   placeholder="rate"
-                  className="dropdownMenu"
+                  className="dropdownMenu mb-1"
                   aria-label="Search"
                   onKeyUp={(e) => this.setUp(e, "rate")}
                   required
@@ -173,9 +204,6 @@ class Comments extends React.Component {
         <Modal.Footer>
           <Button variant="secondary" onClick={this.hideCom}>
             Close
-          </Button>
-          <Button variant="info" onClick={this.hideCom}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>

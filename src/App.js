@@ -1,14 +1,14 @@
 import './App.css'
+import './css/galery.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Container} from 'react-bootstrap'
 import Gallerie from './components/Gallerie'
 
 
 function App() {
   return (
-    <Container> 
+    <div className="bg-dark w-100"> 
       <Gallerie />
-    </Container>
+    </div>
   )
 }
 

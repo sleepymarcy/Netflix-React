@@ -6,6 +6,8 @@ import { CgProfile } from 'react-icons/cg'
 import React from 'react'
 
 class MyNavbar extends React.Component {
+
+
     render() {
 
         return (

@@ -1,3 +1,11 @@
+:root {
+  --home-bg-color: #141414;
+  --account-bg-color: #f3f3f3;
+  --text-color: #fff;
+  --primary-color: #e40a13;
+  --secondary-color: #929292;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,7 +13,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #141414;
+  background-color: #141414!important;
   overflow-x: hidden;
 }
 
@@ -26,6 +34,14 @@ code {
 
 
 /* Gallery */
+
+a {
+  cursor: pointer;
+}
+
+.bg-black {
+  background-color:var(--home-bg-color) !important;
+}
 
 .genre-details {
   padding: 0.5em;
@@ -49,26 +65,22 @@ code {
   color: #fff;
   border: 1px solid #fff;
 }
-
 /* DropDown Genres */
 .dropdownMenu > button {
-  background-color: #343a40;
+  background-color: var(--home-bg-color) !important;
   border: 1px solid #b1b1b198;
 }
-
 .dropdownMenu > button:hover {
-  background-color: #343a40;
+  background-color: var(--home-bg-color) !important;
   border: 1px solid #b1b1b198;
 }
-
 .dropdownMenu > button:active {
-  background-color: #343a40 !important;
+  background-color: var(--home-bg-color) !important;
   border: 1px solid #b1b1b198 !important;
   box-shadow: unset !important;
 }
-
 .dropdownMenu > button:focus {
-  background-color: #343a40 !important;
+  background-color: var(--home-bg-color) !important;
   border: 1px solid #b1b1b198 !important;
   box-shadow: unset !important;
 }
@@ -79,9 +91,25 @@ code {
   color: #b1b1b198 !important;
   transition: 0.3s;
 }
-
 .movieCard:hover {
   position: relative;
   transform: scale(1.1) !important;
   z-index: 999;
+}
+
+/* Footer */ 
+
+.navbar-nav {
+  font-size: 14px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+
+/* Break */
+
+.break {
+  padding-top: 100px;
 }

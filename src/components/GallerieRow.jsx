@@ -1,20 +1,24 @@
 import MovieCard from "./MovieCard";
+import { Spinner } from "react-bootstrap";
 import React from "react";
 
 class GallerieRow extends React.Component {
     state = {
         url: "https://www.omdbapi.com/?apikey=23ae3a68&s=",
         search: this.props.search,
+        loading: true,
         library: []
     }
 
 // Load Function
   async loadMovie() {
+    this.setState({loading: true})
     try {
       let response = await fetch(this.state.url + this.state.search);
       let data = await response.json();
-      this.setState({library : data.Search})
+      this.setState({library : data.Search, loading: false})
         console.log(this.state.library)
+    
     } catch (err) {
       console.log(err);
     }
@@ -30,6 +34,7 @@ class GallerieRow extends React.Component {
             <h2 className="text-white">{this.state.search}</h2>
         </div>
         {
+        this.state.loading ?   <Spinner animation="grow" variant="warning" className="mx-auto my-5"/> : 
         this.state.library.slice(0,6).map(mov => <MovieCard movieId = {mov.imdbID} img={mov.Poster}/>)
         }
         </div>

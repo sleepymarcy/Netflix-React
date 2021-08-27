@@ -12,7 +12,7 @@ class Gallerie extends React.Component {
       <>
         <div className="genre-details bg-black py-3">
           <div className="d-flex justify-content-center">
-            <h2 className="text-light m-0">TV Shows</h2>
+            <h2 className="text-light ml-2">TV Shows</h2>
             <DropdownButton
               id="dropdown-basic-button"
               title="Genres"
@@ -23,7 +23,7 @@ class Gallerie extends React.Component {
               <Dropdown.Item >Horror</Dropdown.Item>
             </DropdownButton>
           </div>
-          <div className="btn-group" role="group" aria-label="First group">
+          <div className="btn-group mr-4" role="group" aria-label="First group">
             <button className="iconSortBtn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,13 +1,14 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import {Container} from 'react-bootstrap'
+import Gallerie from './components/Gallerie'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       
-      </header>
-    </div>
+    <Container> 
+      <Gallerie />
+    </Container>
   )
 }
 
